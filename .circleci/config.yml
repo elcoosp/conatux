@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - run: echo "Test"
+  build:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - run: echo "Build"
+  publish:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - run: echo "Publish"
+workflows:
+  version: 2
+  golive:
+    jobs:
+      - test
+      - build
+      - publish
+  
