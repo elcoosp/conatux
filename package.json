@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "commitizen": "3.0.5",
+    "cz-conventional-changelog": "2.1.0",
+    "lerna": "^3.5.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "commit": "git-cz"
+  }
+}
