@@ -1,21 +1,34 @@
-const presets = [
-  [
-    '@babel/env',
-    {
-      'shippedProposals': true,
-      'targets': {
-        'browsers': [
-          'last 2 versions'
-        ]
-      }
-    }
-  ]
-]
 
-const options = {
+const test = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        'targets': 'last 2 Chrome versions'
+      }
+    ]
+  ]
+}
+
+const production = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        'shippedProposals': true,
+        'targets': {
+          'browsers': [
+            '>0.25%',
+            'not ie 11',
+            'not op_mini all'
+          ]
+        }
+      }
+    ]
+  ],
   'ignore': [
     '**/__tests__'
   ]
 }
 
-module.exports = { presets, ...options }
+module.exports = { env: { test, production } }
