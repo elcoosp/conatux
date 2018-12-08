@@ -4,6 +4,7 @@ jobs:
     docker: # run the steps with Docker
       - image: circleci/node:10.14.1 
     steps: # a collection of executable commands
+      - checkout
       - run:
           name: liste
           command: ls
