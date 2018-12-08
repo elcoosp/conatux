@@ -2,17 +2,17 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:11.4.0
+      - image: circleci/node:10.14.1
     steps:
       - run: npm run test:coverage
   build:
     docker:
-      - image: circleci/node:11.4.0
+      - image: circleci/node:10.14.1
     steps:
       - run: echo "Build"
   publish:
     docker:
-      - image: circleci/node:11.4.0
+      - image: circleci/node:10.14.1
     steps:
       - run: echo "Publish"
 workflows:
