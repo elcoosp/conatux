@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  setup: # runs not using Workflows must have a `build` job as entry point
+  build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
       - image: circleci/node:10.14.1 
     steps: # a collection of executable commands
@@ -16,27 +16,8 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  test:
-    docker:
-      - image: circleci/node:10.14.1
-    steps:
-      - run: npm run test:coverage
-  build:
-    docker:
-      - image: circleci/node:10.14.1
-    steps:
-      - run: echo "Build"
-  publish:
-    docker:
-      - image: circleci/node:10.14.1
-    steps:
-      - run: echo "Publish"
-workflows:
-  version: 2
-  golive:
-    jobs:
-      - setup
-      - test
-      - build
-      - publish
-  
+      - run:
+          name: test:coverage
+          command: npm run test:coverage
+      - store_artifacts:
+          path: coverage # special step to upload test results for display in Test Summary
