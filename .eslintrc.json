@@ -35,5 +35,16 @@
     "filenames/match-exported": 2,
     "xss/no-mixed-html": 2,
     "xss/no-location-href-assign": 2
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.config.js"
+      ],
+      "rules": {
+        "immutable/no-mutation": 0,
+        "filenames/match-regex": 0
+      }
+    }
+  ]
 }
