@@ -1,5 +1,21 @@
 version: 2
 jobs:
+  setup: # runs not using Workflows must have a `build` job as entry point
+    docker: # run the steps with Docker
+      - image: circleci/node:10.14.1 
+    steps: # a collection of executable commands
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: npm-install
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
   test:
     docker:
       - image: circleci/node:10.14.1
@@ -19,6 +35,7 @@ workflows:
   version: 2
   golive:
     jobs:
+      - setup
       - test
       - build
       - publish
