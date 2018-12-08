@@ -4,6 +4,12 @@
   "devDependencies": {
     "commitizen": "3.0.5",
     "cz-conventional-changelog": "2.1.0",
+    "eslint": "5.10.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-node": "8.0.0",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-standard": "4.0.0",
     "jest": "23.6.0",
     "lerna": "3.6.0"
   },
@@ -15,7 +21,11 @@
   "scripts": {
     "commit": "git-cz",
     "test": "jest",
+    "test:lint": "eslint packages/**",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll"
+  },
+  "dependencies": {
+    "eslint-plugin-jest": "22.1.2"
   }
 }

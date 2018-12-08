@@ -1,0 +1,11 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.workingDirectories": [
+    "./packages/front/store",
+    "./packages/front/ui",
+    "./packages/front/app",
+    "./packages/back/core",
+    "./packages/back/server",
+    "./packages/shared/validation"
+  ]
+}

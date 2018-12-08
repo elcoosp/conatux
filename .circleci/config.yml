@@ -18,6 +18,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: Lint
+          command: npm run test:lint
+      - run:
           name: Test
           command: npm run test:coverage
       - run:
