@@ -1,3 +1,6 @@
 module.exports = {
-  "name": "conatux",
+  'name': 'conatux',
+  'transform': {
+    '^.+\\.js$': 'babel-jest'
+  }
 }
