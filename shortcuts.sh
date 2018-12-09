@@ -1,3 +1,4 @@
+#!/usr/bin/env bash 
 # Make sure you made a `chmod +x ./shortcuts.sh`
 # Then run `source ./shortcuts.sh` and use the shortcuts
 
