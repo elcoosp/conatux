@@ -55,7 +55,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll",
     "build:wp": "webpack --config ./webpack.prod.js",
-    "start:front": "webpack-dev-server --config ./webpack.dev.js --open",
+    "start:front": "webpack-dev-server --config ./webpack.dev.js --open --hot",
     "start:back": "cd ./packages/back/server && npm start",
     "start": "npm run start:back & npm run start:front"
   },

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-const App = () => <h1>App</h1>
+import App from './App'
 
 ReactDOM.render(<App />, document.querySelector('#root'))
+
+if (module.hot) module.hot.accept()

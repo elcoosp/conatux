@@ -22,17 +22,17 @@
   ],
   "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier"],
   "rules": {
-    "filenames/match-regex": 2,
     "filenames/match-exported": 2,
     "xss/no-mixed-html": 2,
     "xss/no-location-href-assign": 2,
-    "prettier/prettier": 2
+    "prettier/prettier": 2,
+    "filenames/match-regex": 0,
+    "unicorn/filename-case": 0
   },
   "overrides": [
     {
       "files": ["*.config.js", "webpack.*.js"],
       "rules": {
-        "filenames/match-regex": 0,
         "xss/no-mixed-html": 0
       }
     }
