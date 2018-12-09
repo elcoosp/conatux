@@ -3,9 +3,18 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "devDependencies": {}
+  "scripts": {
+    "start": "node ./src/index.js",
+    "watch": "nodemon --exec \"prisma deploy && npm start\""
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.16.7",
+    "prisma-client-lib": "^1.22.2"
+  }
 }

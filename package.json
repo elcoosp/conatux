@@ -18,7 +18,6 @@
     "eslint-config-prettier": "3.3.0",
     "eslint-config-standard": "12.0.0",
     "eslint-plugin-filenames": "1.3.2",
-    "eslint-plugin-immutable": "1.0.0",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jest": "22.1.2",
     "eslint-plugin-jsdoc": "3.14.0",
@@ -56,9 +55,10 @@
     "test:lint": "eslint packages/**",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "build:babel": "babel packages/** --out-dir build",
     "build:wp": "webpack --config ./webpack.prod.js",
-    "start": "webpack-dev-server --config ./webpack.dev.js --open "
+    "start:front": "webpack-dev-server --config ./webpack.dev.js --open",
+    "start:back": "cd ./packages/back/server && npm start",
+    "start": "npm run start:back && npm run start:front"
   },
   "dependencies": {
     "@babel/polyfill": "7.0.0"

@@ -92,3 +92,6 @@ Thumbs.db
 
 # Distribution
 dist
+
+# Prisma generated client
+generated
