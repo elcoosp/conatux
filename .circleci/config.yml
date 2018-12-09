@@ -2,14 +2,17 @@ version: 2
 jobs:
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
-      - image: circleci/node:10.14.1 
+      - image: circleci/node:10.14.1
     steps: # a collection of executable commands
       - checkout
       - run:
           name: Update npm
-          command: 'sudo npm install -g npm@latest'
+          command: "sudo npm install -g npm@latest"
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Npm install
+          command: npm i
       - run:
           name: Bootstrap
           command: npx lerna bootstrap
@@ -17,6 +20,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: Prettier
+          command: npm run test:prettier
       - run:
           name: Lint
           command: npm run test:lint
