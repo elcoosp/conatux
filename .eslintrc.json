@@ -18,8 +18,7 @@
     "plugin:unicorn/recommended",
     "plugin:security/recommended",
     "plugin:jsdoc/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended"
+    "plugin:jsx-a11y/recommended"
   ],
   "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier"],
   "rules": {
