@@ -21,9 +21,6 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Prettier
-          command: npm run test:prettier
-      - run:
           name: Lint
           command: npm run test:lint
       - run:

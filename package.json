@@ -51,7 +51,7 @@
     "commit": "git-cz",
     "test": "jest",
     "test:prettier": "prettier packages/**/**.js",
-    "test:lint": "eslint packages/**",
+    "test:lint": "eslint packages/** --fix",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll",
     "build:wp": "webpack --config ./webpack.prod.js",
