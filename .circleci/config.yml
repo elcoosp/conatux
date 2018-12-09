@@ -27,7 +27,7 @@ jobs:
           name: Upload coverage
           command: bash <(curl -s https://codecov.io/bash)
       - run:
-          name: Build babel
-          command: npm run build:babel
+          name: Build webpack
+          command: npm run build:wp
       - store_artifacts:
           path: coverage # special step to upload test results for display in Test Summary
