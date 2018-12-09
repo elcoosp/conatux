@@ -9,17 +9,14 @@ jobs:
           name: Update npm
           command: "sudo npm install -g npm@latest"
       - restore_cache: # special step to restore the dependency cache
-          key: foo
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Bootstrap
           command: npx lerna bootstrap
       - save_cache: # special step to save the dependency cache
-          key: foo
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: Prettier
-          command: npm run test:prettier
       - run:
           name: Lint
           command: npm run test:lint
