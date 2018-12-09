@@ -18,14 +18,16 @@
     "plugin:unicorn/recommended",
     "plugin:security/recommended",
     "plugin:jsdoc/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
     "immutable",
     "filenames",
     "xss",
     "jsdoc",
-    "jsx-a11y"
+    "jsx-a11y",
+    "prettier"
   ],
   "rules": {
     "immutable/no-let": 2,
@@ -34,7 +36,8 @@
     "filenames/match-regex": 2,
     "filenames/match-exported": 2,
     "xss/no-mixed-html": 2,
-    "xss/no-location-href-assign": 2
+    "xss/no-location-href-assign": 2,
+    "prettier/prettier": 2
   },
   "overrides": [
     {
