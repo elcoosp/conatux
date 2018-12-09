@@ -9,12 +9,12 @@ jobs:
           name: Update npm
           command: "sudo npm install -g npm@latest"
       - restore_cache: # special step to restore the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: foo
       - run:
           name: Bootstrap
           command: npx lerna bootstrap
       - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: foo
           paths:
             - ./node_modules
       - run:
