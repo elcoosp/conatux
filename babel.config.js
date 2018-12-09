@@ -6,7 +6,9 @@ const test = {
       {
         'targets': 'last 2 Chrome versions'
       }
-    ]
+    ],
+    '@babel/preset-react'
+
   ]
 }
 
@@ -24,11 +26,16 @@ const production = {
           ]
         }
       }
-    ]
+    ],
+    '@babel/preset-react'
+
   ],
   'ignore': [
     '**/__tests__'
   ]
 }
 
-module.exports = { env: { test, production } }
+module.exports = (api) => {
+  api.cache(true)
+  return { env: { test, production } }
+}
