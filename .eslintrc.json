@@ -39,11 +39,13 @@
   "overrides": [
     {
       "files": [
-        "*.config.js"
+        "*.config.js",
+        "webpack.*.js"
       ],
       "rules": {
         "immutable/no-mutation": 0,
-        "filenames/match-regex": 0
+        "filenames/match-regex": 0,
+        "xss/no-mixed-html": 0
       }
     }
   ]
