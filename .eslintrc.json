@@ -21,18 +21,8 @@
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "immutable",
-    "filenames",
-    "xss",
-    "jsdoc",
-    "jsx-a11y",
-    "prettier"
-  ],
+  "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier"],
   "rules": {
-    "immutable/no-let": 2,
-    "immutable/no-this": 2,
-    "immutable/no-mutation": 2,
     "filenames/match-regex": 2,
     "filenames/match-exported": 2,
     "xss/no-mixed-html": 2,
@@ -41,12 +31,8 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.config.js",
-        "webpack.*.js"
-      ],
+      "files": ["*.config.js", "webpack.*.js"],
       "rules": {
-        "immutable/no-mutation": 0,
         "filenames/match-regex": 0,
         "xss/no-mixed-html": 0
       }
