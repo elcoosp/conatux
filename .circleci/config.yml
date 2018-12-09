@@ -11,12 +11,18 @@ jobs:
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
+          name: Npm install
+          command: npm i
+      - run:
           name: Bootstrap
           command: npx lerna bootstrap
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: Prettier
+          command: npm run test:prettier
       - run:
           name: Lint
           command: npm run test:lint
