@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const appPath = (...pathToFile) =>
-  path.join(__dirname, 'packages', 'front', 'app', ...pathToFile)
+  path.resolve(__dirname, 'packages', 'front', 'app', ...pathToFile)
 
 const output = {
   path: path.resolve(__dirname, 'dist'),
@@ -38,10 +38,15 @@ const plugins = [
     template: appPath('public', 'index.html')
   })
 ]
-
+const resolve = {
+  alias: {
+    '@:': appPath('src')
+  }
+}
 module.exports = {
   entry: appPath('src', 'index.js'),
   output,
   module: { rules },
-  plugins
+  plugins,
+  resolve
 }
