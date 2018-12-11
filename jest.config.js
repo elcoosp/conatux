@@ -3,7 +3,10 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
+  rootDir: './packages',
   moduleNameMapper: {
-    '^@:(.*)$': '<rootDir>/packages/front/app/src$1'
-  }
+    '^@:(.*)$': '<rootDir>/front/app/src$1'
+  },
+  setupTestFrameworkScriptFile: '<rootDir>/front/app/setupEnzyme.js',
+  snapshotSerializers: ['enzyme-to-json/serializer']
 }
