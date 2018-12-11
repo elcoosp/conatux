@@ -22,6 +22,7 @@
   ],
   "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier"],
   "rules": {
+    "security/detect-object-injection": 0,
     "filenames/match-exported": 2,
     "xss/no-mixed-html": 2,
     "xss/no-location-href-assign": 2,
