@@ -1,9 +1,11 @@
+import { labelize } from '@:/utils/linkify'
+
 export default {
-  home: '/',
-  me: {
-    profile: '/me/profile'
+  Home: labelize('/', 'Home'),
+  Me: {
+    Profile: labelize('/me/profile', 'Profile')
   },
-  auth: {
-    signUp: '/auth/signup'
+  Auth: {
+    SignUp: labelize('/auth/signup', 'Sign up')
   }
 }
