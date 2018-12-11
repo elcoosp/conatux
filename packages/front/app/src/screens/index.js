@@ -1,3 +1,5 @@
 export { default as Home } from './Home'
+export { default as Links } from './Links'
+export { default as Screen } from './Screen'
 export { default as Profile } from './me/Profile'
 export { default as SignUp } from './auth/SignUp'
