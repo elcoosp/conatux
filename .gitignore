@@ -95,3 +95,7 @@ dist
 
 # Prisma generated client
 generated
+
+# Cypress
+cypress/integration/examples
+cypress/support

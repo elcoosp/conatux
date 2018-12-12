@@ -9,7 +9,8 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "cypress/globals": true
   },
   "extends": [
     "standard",
@@ -18,9 +19,10 @@
     "plugin:unicorn/recommended",
     "plugin:security/recommended",
     "plugin:jsdoc/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:cypress/recommended"
   ],
-  "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier"],
+  "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier", "cypress"],
   "rules": {
     "security/detect-object-injection": 0,
     "filenames/match-exported": 2,
@@ -32,7 +34,7 @@
   },
   "overrides": [
     {
-      "files": ["*.config.js", "webpack.*.js"],
+      "files": ["*.config.js", "webpack.*.js", "cypress/**"],
       "rules": {
         "xss/no-mixed-html": 0
       }
