@@ -46,7 +46,7 @@ jobs:
       ## this to the run.
       - run:
           name: Run Cypress tests
-          command: npm run test:cy:run --record
+          command: npm run test:e2e:run --record
 
       ## alternatively we could specify
       ## a specific record key to use
