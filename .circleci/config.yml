@@ -1,5 +1,62 @@
-version: 2
+# Check https://circleci.com/docs/2.0/ for more details
+# for config.yml syntax see https://circleci.com/docs/2.0/configuration-reference/
+version: 2.1
 jobs:
+  test/e2e:
+    docker:
+      # find Docker image at https://github.com/cypress-io/cypress-docker-images
+      - image: cypress/base:10
+    steps:
+      - checkout
+
+      # Download and cache dependencies for the app and for tests
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - dependencies-
+
+      # Install NPM dependencies quickly using "npm ci"
+      # https://on.cypress.io/continuous-integration
+      # https://docs.npmjs.com/cli/ci
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Bootstrap
+          command: npx lerna bootstrap
+      - save_cache:
+          paths:
+            # all NPM modules
+            - ~/.npm
+            # Cypress binary (or yarn dependencies)
+            - ~/.cache
+          key: dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Start server
+          command: npm start:front
+          background: true
+
+      ## now run cypress headlessly
+      ## and record all of the tests.
+      ## Cypress will search for a
+      ## CYPRESS_RECORD_KEY environment
+      ## variable by default and apply
+      ## this to the run.
+      - run:
+          name: Run Cypress tests
+          command: npm run test:cy:run --record
+
+      ## alternatively we could specify
+      ## a specific record key to use
+      ## like this without having to
+      ## configure environment variables
+      ## - npm run cypress:run -- --record --key <your_record_key>
+      ## you can also start the server and
+      ## run e2e tests and shut down server with
+      ## a single command
+      ## - npm run test:ci
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
       - image: circleci/node:10.14.1
@@ -7,12 +64,12 @@ jobs:
       - checkout
       - run:
           name: Update npm
-          command: "sudo npm install -g npm@latest"
+          command: 'sudo npm install -g npm@latest'
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Npm install
-          command: npm i
+          command: npm ci
       - run:
           name: Bootstrap
           command: npx lerna bootstrap
@@ -21,16 +78,23 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Lint
+          name: Lint code
           command: npm run test:lint
       - run:
           name: Test
-          command: npm run test:coverage
-      - run:
-          name: Upload coverage
-          command: bash <(curl -s https://codecov.io/bash)
+          command: npm run test:cov
       - run:
           name: Build webpack
           command: npm run build:wp
+      - run:
+          name: Upload coverage
+          command: bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
           path: coverage # special step to upload test results for display in Test Summary
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - test/e2e
+      - build
