@@ -35,7 +35,7 @@ jobs:
 
       - run:
           name: Start server
-          command: npm start:front
+          command: npm run start:front
           background: true
 
       ## now run cypress headlessly
