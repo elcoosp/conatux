@@ -30,7 +30,8 @@
     "xss/no-location-href-assign": 2,
     "prettier/prettier": 2,
     "filenames/match-regex": 0,
-    "unicorn/filename-case": 0
+    "unicorn/filename-case": 0,
+    "jsx-a11y/label-has-for": 0
   },
   "overrides": [
     {
