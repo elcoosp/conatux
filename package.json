@@ -57,7 +57,7 @@
     }
   },
   "scripts": {
-    "clear": "rm -r node_modules && npm i",
+    "clear": "rm -r node_modules && npm i && lerna bootstrap",
     "commit": "git-cz",
     "test": "jest --coverage",
     "test:prettier": "prettier packages/**/**.js",
