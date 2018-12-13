@@ -6,7 +6,8 @@ const appPath = (...pathToFile) =>
 
 const output = {
   path: path.resolve(__dirname, 'dist'),
-  filename: '[name]/bundle.js'
+  filename: '[name]/bundle.js',
+  publicPath: '/'
 }
 
 const rules = [
@@ -41,7 +42,8 @@ const plugins = [
 const resolve = {
   alias: {
     '@:': appPath('src')
-  }
+  },
+  modules: ['node_modules']
 }
 module.exports = {
   entry: appPath('src', 'index.js'),

@@ -8,7 +8,8 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, 'dist'),
     watchContentBase: true,
     hot: true,
-    compress: true
+    compress: true,
+    historyApiFallback: true
   },
   devtool: 'inline-source-map'
 })
