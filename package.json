@@ -38,7 +38,7 @@
     "eslint-plugin-xss": "0.1.9",
     "file-loader": "2.0.0",
     "html-webpack-plugin": "3.2.0",
-    "jest": "24.0.0-alpha.7",
+    "jest": "24.0.0-alpha.8",
     "jest-cli": "23.6.0",
     "lerna": "3.6.0",
     "prettier": "1.15.3",
