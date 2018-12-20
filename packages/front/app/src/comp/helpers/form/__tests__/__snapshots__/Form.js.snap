@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> should match snapshot 1`] = `
+<Formik
+  enableReinitialize={false}
+  isInitialValid={false}
+  validateOnBlur={true}
+  validateOnChange={true}
+>
+  <FormInner>
+    children
+  </FormInner>
+</Formik>
+`;
