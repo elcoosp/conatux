@@ -7,6 +7,8 @@ module.exports = {
   moduleNameMapper: {
     '^@:(.*)$': '<rootDir>/packages/front/app/src$1'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/front/app/setupEnzyme.js',
-  snapshotSerializers: ['enzyme-to-json/serializer']
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  testPathIgnorePatterns: ['/node_modules/', '/cypress/'],
+  setupTestFrameworkScriptFile: 'jest-enzyme',
+  testEnvironment: 'enzyme'
 }
