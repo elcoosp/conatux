@@ -17,13 +17,7 @@ jobs:
             - dependencies-
       - run:
           name: Install chrome
-          command: |
-            apt-get update
-            apt-get install -f lsb-release libappindicator3-1
-            curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            dpkg -i google-chrome.deb
-            sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
-            rm google-chrome.deb
+          command: apt-get install -f google-chrome-stable
       # Install NPM dependencies quickly using "npm ci"
       # https://on.cypress.io/continuous-integration
       # https://docs.npmjs.com/cli/ci
