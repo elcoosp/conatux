@@ -20,6 +20,7 @@ jobs:
           command: |
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             dpkg -i google-chrome-stable_current_amd64.deb
+            apt-get -f install
       # Install NPM dependencies quickly using "npm ci"
       # https://on.cypress.io/continuous-integration
       # https://docs.npmjs.com/cli/ci
