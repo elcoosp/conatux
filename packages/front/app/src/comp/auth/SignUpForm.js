@@ -27,7 +27,7 @@ const SignUpForm = () => (
   <Form
     initialValues={initialValues}
     validationSchema={validationSchema}
-    onSubmit={console.log}
+    // onSubmit={(values, { setSubmitting }) => {}}
   >
     <LabelledField label="Username" type="text" name="username" />
     <LabelledField label="Email" type="email" name="email" />

@@ -7,8 +7,6 @@ exports[`<Form /> should match snapshot 1`] = `
   validateOnBlur={true}
   validateOnChange={true}
 >
-  <FormInner>
-    children
-  </FormInner>
+  <Component />
 </Formik>
 `;
