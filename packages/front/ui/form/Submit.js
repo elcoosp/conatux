@@ -1,8 +1,8 @@
 import React from 'react'
 import P from 'prop-types'
 
-const Submit = ({ disabled }) => (
-  <button type="submit" disabled={disabled}>
+const Submit = ({ disabled, ...props }) => (
+  <button type="submit" disabled={disabled} {...props}>
     Submit
   </button>
 )
