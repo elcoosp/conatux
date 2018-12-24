@@ -10,7 +10,7 @@ const App = () => (
     <Switch>
       <Route path={ROUTES.Home.path} component={Home} exact />
       <Route path={ROUTES.Me.Profile.path} component={Profile} />
-      <Route path={ROUTES.Auth.SignUp.Path} component={SignUp} />
+      <Route path={ROUTES.Auth.SignUp.path} component={SignUp} />
     </Switch>
   </Layout>
 )
