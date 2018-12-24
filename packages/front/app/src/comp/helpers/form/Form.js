@@ -1,11 +1,18 @@
 import React from 'react'
 import P from 'prop-types'
-import { Formik } from 'formik'
-import FormInner from './FormInner'
+import { Formik, Form as FormikForm } from 'formik'
+import { Form as UiForm, Submit } from 'ui/form'
+
+const FormInner = UiForm.withComponent(FormikForm)
 
 const Form = ({ children, ...props }) => (
   <Formik {...props}>
-    <FormInner>{children}</FormInner>
+    {({ isSubmitting }) => (
+      <FormInner>
+        {children}
+        <Submit disabled={isSubmitting} />
+      </FormInner>
+    )}
   </Formik>
 )
 
