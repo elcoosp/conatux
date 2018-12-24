@@ -7,10 +7,10 @@ const FormInner = UiForm.withComponent(FormikForm)
 
 const Form = ({ children, ...props }) => (
   <Formik {...props}>
-    {({ isSubmitting }) => (
+    {({ isSubmitting, errors }) => (
       <FormInner>
         {children}
-        <Submit disabled={isSubmitting} />
+        <Submit disabled={isSubmitting || Object.keys(errors).length > 0} />
       </FormInner>
     )}
   </Formik>
