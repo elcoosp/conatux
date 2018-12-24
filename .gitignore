@@ -99,3 +99,5 @@ generated
 # Cypress
 cypress/integration/examples
 cypress/support
+cypress/videos
+cypress/screenshots

@@ -67,7 +67,7 @@
     "test:lint": "eslint packages/** --fix",
     "test:cov": "jest --coverage",
     "test:e2e:open": "cypress open",
-    "test:e2e:run": "cypress run",
+    "test:e2e:run": "cypress run --browser chrome",
     "test:watch": "jest --watchAll",
     "build:wp": "webpack --config ./webpack.prod.js",
     "start:front": "webpack-dev-server --config ./webpack.dev.js --hot",
