@@ -15,7 +15,9 @@ jobs:
             - dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - dependencies-
-
+      - run:
+          name: Install chrome
+          command: apt-get install google-chrome-stable
       # Install NPM dependencies quickly using "npm ci"
       # https://on.cypress.io/continuous-integration
       # https://docs.npmjs.com/cli/ci
