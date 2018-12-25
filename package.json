@@ -71,7 +71,7 @@
     "test:watch": "jest --watchAll",
     "build:wp": "webpack --config ./webpack.prod.js",
     "start:front": "webpack-dev-server --config ./webpack.dev.js --hot",
-    "start:back": "cd ./packages/back/server && npm start",
+    "start:back": "cd ./packages/back/server && npm run watch",
     "start": "npm run start:back & npm run start:front"
   },
   "dependencies": {
