@@ -1,43 +1,42 @@
 import React from 'react'
-import * as yup from 'yup'
-import { LabelledField, Form } from '@:/comp/helpers/form'
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
+import {
+  Fields,
+  Form,
+  validation,
+  handleMutationSubmit
+} from '@:/comp/helpers/form'
 
-// Use spected
-const validationSchema = yup.object().shape({
-  username: yup
-    .string()
-    .required()
-    .min(4)
-    .max(12),
-  email: yup
-    .string()
-    .email()
-    .max(40)
-    .required()
-})
-
-const initialValues = {
-  email: '',
-  password: '',
-  passwordConfirmation: '',
-  username: ''
-}
+const CREATE_USER = gql`
+  mutation createUser($username: String!, $email: String!, $password: String!) {
+    createUser(email: $email, password: $password, username: $username) {
+      id
+    }
+  }
+`
+const validationSchema = validation.makeSchemaFor(
+  'email',
+  'username',
+  'password',
+  'passwordConfirmation'
+)
 
 const SignUpForm = () => (
-  <Form
-    initialValues={initialValues}
-    validationSchema={validationSchema}
-    // onSubmit={(values, { setSubmitting }) => {}}
-  >
-    <LabelledField label="Username" type="text" name="username" />
-    <LabelledField label="Email" type="email" name="email" />
-    <LabelledField label="Password" type="password" name="password" />
-    <LabelledField
-      label="Password confirmation"
-      type="password"
-      name="passwordConfirmation"
-    />
-  </Form>
+  <Mutation mutation={CREATE_USER}>
+    {(createUser, { loading, error, data }) => (
+      <Form
+        validationSchema={validationSchema}
+        initialValues={validationSchema.cast()}
+        onSubmit={handleMutationSubmit({ createUser })}
+      >
+        <Fields.Username />
+        <Fields.Email />
+        <Fields.Password />
+        <Fields.PasswordConfirmation />
+      </Form>
+    )}
+  </Mutation>
 )
 
 export default SignUpForm
