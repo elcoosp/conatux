@@ -8,10 +8,13 @@ import {
   handleMutationSubmit
 } from '@:/comp/helpers/form'
 
-const CREATE_USER = gql`
-  mutation createUser($username: String!, $email: String!, $password: String!) {
-    createUser(email: $email, password: $password, username: $username) {
-      id
+const SIGN_UP = gql`
+  mutation signUp($username: String!, $email: String!, $password: String!) {
+    signUp(email: $email, password: $password, username: $username) {
+      user {
+        id
+      }
+      token
     }
   }
 `
@@ -23,7 +26,7 @@ const validationSchema = validation.makeSchemaFor(
 )
 
 const SignUpForm = () => (
-  <Mutation mutation={CREATE_USER}>
+  <Mutation mutation={SIGN_UP}>
     {(createUser, { loading, error, data }) => (
       <Form
         validationSchema={validationSchema}

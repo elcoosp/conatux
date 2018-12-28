@@ -1,135 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SignUpForm /> should match snapshot 1`] = `
-<Form
-  initialValues={
+<Mutation
+  mutation={
     Object {
-      "email": "",
-      "password": "",
-      "passwordConfirmation": "",
-      "username": "",
-    }
-  }
-  validationSchema={
-    ObjectSchema {
-      "_blacklist": RefSet {
-        "list": Set {},
-        "refs": Map {},
-      },
-      "_conditions": Array [],
-      "_defaultDefault": [Function],
-      "_deps": Array [],
-      "_excludedEdges": Array [],
-      "_exclusive": Object {},
-      "_mutate": false,
-      "_nodes": Array [
-        "email",
-        "username",
-      ],
-      "_options": Object {
-        "abortEarly": true,
-        "recursive": true,
-      },
-      "_type": "object",
-      "_typeError": [Function],
-      "_whitelist": RefSet {
-        "list": Set {},
-        "refs": Map {},
-      },
-      "fields": Object {
-        "email": StringSchema {
-          "_blacklist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+      "definitions": Array [
+        Object {
+          "directives": Array [],
+          "kind": "OperationDefinition",
+          "name": Object {
+            "kind": "Name",
+            "value": "createUser",
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
-            "max": true,
-            "required": false,
-            "undefined": false,
+          "operation": "mutation",
+          "selectionSet": Object {
+            "kind": "SelectionSet",
+            "selections": Array [
+              Object {
+                "alias": undefined,
+                "arguments": Array [
+                  Object {
+                    "kind": "Argument",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "email",
+                    },
+                    "value": Object {
+                      "kind": "Variable",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "email",
+                      },
+                    },
+                  },
+                  Object {
+                    "kind": "Argument",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "password",
+                    },
+                    "value": Object {
+                      "kind": "Variable",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "password",
+                      },
+                    },
+                  },
+                  Object {
+                    "kind": "Argument",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "username",
+                    },
+                    "value": Object {
+                      "kind": "Variable",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "username",
+                      },
+                    },
+                  },
+                ],
+                "directives": Array [],
+                "kind": "Field",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "createUser",
+                },
+                "selectionSet": Object {
+                  "kind": "SelectionSet",
+                  "selections": Array [
+                    Object {
+                      "alias": undefined,
+                      "arguments": Array [],
+                      "directives": Array [],
+                      "kind": "Field",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "id",
+                      },
+                      "selectionSet": undefined,
+                    },
+                  ],
+                },
+              },
+            ],
           },
-          "_mutate": false,
-          "_options": Object {
-            "abortEarly": true,
-            "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
-          },
-          "tests": Array [
-            [Function],
-            [Function],
-            [Function],
-            [Function],
-          ],
-          "transforms": Array [
-            [Function],
+          "variableDefinitions": Array [
+            Object {
+              "defaultValue": undefined,
+              "kind": "VariableDefinition",
+              "type": Object {
+                "kind": "NonNullType",
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              "variable": Object {
+                "kind": "Variable",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "username",
+                },
+              },
+            },
+            Object {
+              "defaultValue": undefined,
+              "kind": "VariableDefinition",
+              "type": Object {
+                "kind": "NonNullType",
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              "variable": Object {
+                "kind": "Variable",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "email",
+                },
+              },
+            },
+            Object {
+              "defaultValue": undefined,
+              "kind": "VariableDefinition",
+              "type": Object {
+                "kind": "NonNullType",
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              "variable": Object {
+                "kind": "Variable",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "password",
+                },
+              },
+            },
           ],
         },
-        "username": StringSchema {
-          "_blacklist": RefSet {
-            "list": Set {},
-            "refs": Map {},
-          },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
-            "max": true,
-            "min": true,
-            "required": false,
-          },
-          "_mutate": false,
-          "_options": Object {
-            "abortEarly": true,
-            "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
-          },
-          "tests": Array [
-            [Function],
-            [Function],
-            [Function],
-            [Function],
-          ],
-          "transforms": Array [
-            [Function],
-          ],
-        },
-      },
-      "tests": Array [],
-      "transforms": Array [
-        [Function],
       ],
+      "kind": "Document",
+      "loc": Object {
+        "end": 175,
+        "start": 0,
+      },
     }
   }
 >
-  <LabelledField
-    label="Username"
-    name="username"
-    type="text"
-  />
-  <LabelledField
-    label="Email"
-    name="email"
-    type="email"
-  />
-  <LabelledField
-    label="Password"
-    name="password"
-    type="password"
-  />
-  <LabelledField
-    label="Password confirmation"
-    name="passwordConfirmation"
-    type="password"
-  />
-</Form>
+  <Component />
+</Mutation>
 `;
