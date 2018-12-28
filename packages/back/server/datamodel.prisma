@@ -4,3 +4,8 @@ type User {
   email: String! @unique
   password: String!
 }
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
