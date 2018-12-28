@@ -3,11 +3,12 @@ import P from 'prop-types'
 import { ROUTES } from '@:/constants'
 import { Route, Redirect } from 'react-router-dom'
 
+const isAuth = () => false
 const PrivateRoute = ({ component: Component, redirectTo, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      false /** Change for real auth */ ? (
+      isAuth() ? (
         <Component {...props} />
       ) : (
         <Redirect
