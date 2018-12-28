@@ -1,5 +1,5 @@
 /* namedMutationObj: An object with a unique property which is the name of the mutation and whose value is a mutation function */
-const execNamedMutation = async (namedMutationObj, variables) => {
+export const execNamedMutation = async (namedMutationObj, variables) => {
   const [mutationName] = Object.keys(namedMutationObj)
   const mutation = namedMutationObj[mutationName]
 
@@ -19,9 +19,9 @@ const handleMutationSubmit = namedMutationObj => async (
 ) => {
   try {
     const response = await execNamedMutation(namedMutationObj, variables)
-    console.log(response)
+    return response
   } catch (error) {
-    console.log(error.graphQLErrors)
+    // TODO: handle error mappings to fields with setErrors
   } finally {
     setSubmitting(false)
   }
