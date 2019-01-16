@@ -1,5 +1,8 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const { WrongCredentials } = require('../../errors')
+
+const signToken = userId => jwt.sign({ userId }, process.env.JWT_SECRET)
 
 const auth = {
   signUp: async (_, { username, email, password: rawPassword }, { prisma }) => {
@@ -7,27 +10,27 @@ const auth = {
     const user = await prisma.createUser({ username, email, password })
 
     return {
-      token: jwt.sign({ userId: user.id }, process.env.JWT_SECRET),
+      token: signToken(user.id),
+      user
+    }
+  },
+
+  login: async (_, { email, password }, { prisma }) => {
+    const user = await prisma.user({ email })
+    if (!user) {
+      throw new WrongCredentials()
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password)
+    if (!isPasswordValid) {
+      throw new WrongCredentials()
+    }
+
+    return {
+      token: signToken(user.id),
       user
     }
   }
-
-  // async login(parent, { email, password }, ctx, info) {
-  //   const user = await ctx.db.query.user({ where: { email } })
-  //   if (!user) {
-  //     throw new Error(`No such user found for email: ${email}`)
-  //   }
-
-  //   const valid = await bcrypt.compare(password, user.password)
-  //   if (!valid) {
-  //     throw new Error('Invalid password')
-  //   }
-
-  //   return {
-  //     token: jwt.sign({ userId: user.id }, process.env.JWT_SECRET),
-  //     user
-  //   }
-  // }
 }
 
 module.exports = auth
