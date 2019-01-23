@@ -29,7 +29,8 @@ const rules = [
     loader: 'babel-loader',
     options: {
       rootMode: 'upward',
-      presets: ['@babel/react']
+      presets: ['@babel/react'],
+      plugins: ['@babel/plugin-proposal-optional-chaining']
     }
   }
 ]

@@ -1,3 +1,7 @@
+const common = {
+  presets: ['@babel/preset-react'],
+  plugins: ['@babel/plugin-proposal-optional-chaining']
+}
 const test = {
   presets: [
     [
@@ -6,9 +10,9 @@ const test = {
         targets: 'last 2 Chrome versions'
       }
     ],
-    '@babel/preset-react'
+    ...common.presets
   ],
-  plugins: ['react-hot-loader/babel']
+  plugins: ['react-hot-loader/babel', ...common.plugins]
 }
 
 const production = {
@@ -22,9 +26,10 @@ const production = {
         }
       }
     ],
-    '@babel/preset-react'
+    ...common.presets
   ],
-  ignore: ['**/__tests__']
+  ignore: ['**/__tests__'],
+  plugins: [...common.plugins]
 }
 
 module.exports = api => {
