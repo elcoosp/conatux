@@ -2,19 +2,23 @@ import React from 'react'
 import P from 'prop-types'
 import { ROUTES } from '@:/constants'
 import { Route, Redirect } from 'react-router-dom'
+import { withAuthToken } from '@:/comp/helpers/hoc'
 
-const isAuth = () => false
-const PrivateRoute = ({ component: Component, redirectTo, ...rest }) => (
+export const PrivateRoute = ({
+  authToken,
+  component: Component,
+  redirectTo = ROUTES.Auth.Login.path,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
-      isAuth() ? (
+      authToken ? (
         <Component {...props} />
       ) : (
         <Redirect
           to={{
-            pathname: redirectTo || ROUTES.Auth.Login.path,
-            state: { from: props.location }
+            pathname: redirectTo
           }}
         />
       )
@@ -23,7 +27,8 @@ const PrivateRoute = ({ component: Component, redirectTo, ...rest }) => (
 )
 
 PrivateRoute.propTypes = {
-  redirectTo: P.string
+  redirectTo: P.string,
+  authToken: P.string
 }
 
-export default PrivateRoute
+export default withAuthToken(PrivateRoute)
