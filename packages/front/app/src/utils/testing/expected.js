@@ -27,7 +27,14 @@ const isCompWithProps = ({ kind, props, component }) => {
   })
 }
 
+const components = (wrapper, namedComponentsObject) =>
+  Object.entries(namedComponentsObject).forEach(([name, Component]) =>
+    it(`should render a \`${name}\` component`, () =>
+      expect(wrapper.find(Component).exists()).toBe(true))
+  )
+
 export default {
   withProps,
-  isCompWithProps
+  isCompWithProps,
+  components
 }
