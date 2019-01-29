@@ -1,3 +1,6 @@
 export default {
-  TOKEN_KEY: 'token'
+  KEYS: {
+    TOKEN: 'token',
+    APOLLO_CACHE: 'apollo-cache-persist'
+  }
 }
