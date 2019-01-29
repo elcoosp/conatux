@@ -1,8 +1,9 @@
 import React from 'react'
 import P from 'prop-types'
-import { Label } from 'ui/form'
-import { Field, ErrorMessage } from 'formik'
+import { Label, Input } from 'ui/form'
+import { Field as FormikField, ErrorMessage } from 'formik'
 
+const Field = Input.withComponent(FormikField)
 const LabelledField = ({ label, name, type }) => (
   <>
     <Label>
