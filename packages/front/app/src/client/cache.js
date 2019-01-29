@@ -1,13 +1,15 @@
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { persistCache } from 'apollo-cache-persist'
+import { CachePersistor } from 'apollo-cache-persist'
 
 const cache = new InMemoryCache({
   addTypename: false
 })
 
-persistCache({
+export const persistor = new CachePersistor({
   cache,
   storage: window.localStorage
 })
+
+persistor.restore()
 
 export default cache
