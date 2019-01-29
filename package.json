@@ -12,6 +12,7 @@
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
+    "bundlesize": "0.17.1",
     "clean-webpack-plugin": "1.0.0",
     "commitizen": "3.0.5",
     "css-loader": "2.0.0",
@@ -62,12 +63,19 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "bundlesize": [
+    {
+      "path": "./dist/main/bundle.js",
+      "maxSize": "1000 kB"
+    }
+  ],
   "scripts": {
     "clear": "rm -r node_modules && npm i && lerna bootstrap",
     "commit": "git-cz",
     "test": "jest --coverage",
     "test:prettier": "prettier packages/**/**.js",
     "test:lint": "eslint packages/** --fix",
+    "test:bundlesize": "bundlesize",
     "test:cov": "jest --coverage",
     "test:e2e:open": "cypress open",
     "test:e2e:run": "cypress run --browser chrome",
