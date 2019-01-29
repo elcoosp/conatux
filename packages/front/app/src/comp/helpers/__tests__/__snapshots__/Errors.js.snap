@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Errors /> should match snapshot 1`] = `
+Array [
+  <styled.p
+    key="Bad request"
+  >
+    Bad request
+  </styled.p>,
+  <styled.p
+    key="Something goes wrong"
+  >
+    Something goes wrong
+  </styled.p>,
+]
+`;
