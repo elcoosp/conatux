@@ -95,6 +95,9 @@ jobs:
           name: Build webpack
           command: npm run build:wp
       - run:
+          name: Check bundle size
+          command: npm run test:bundlesize
+      - run:
           name: Upload coverage
           command: bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
