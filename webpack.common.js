@@ -30,7 +30,7 @@ const rules = [
     options: {
       rootMode: 'upward',
       presets: ['@babel/react'],
-      plugins: ['@babel/plugin-proposal-optional-chaining']
+      plugins: []
     }
   }
 ]
