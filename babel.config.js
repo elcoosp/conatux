@@ -1,6 +1,6 @@
 const common = {
   presets: ['@babel/preset-react'],
-  plugins: ['@babel/plugin-proposal-optional-chaining']
+  plugins: []
 }
 const test = {
   presets: [
