@@ -6,6 +6,11 @@ exports[`<Form /> should match snapshot 1`] = `
   isInitialValid={false}
   validateOnBlur={true}
   validateOnChange={true}
+  validationSchema={
+    Object {
+      "cast": [Function],
+    }
+  }
 >
   <Component />
 </Formik>
