@@ -1,12 +1,7 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-import {
-  Fields,
-  Form,
-  validation,
-  handleMutationSubmit
-} from '@:/comp/helpers/form'
+import { Fields, Form, validation } from '@:/comp/helpers/form'
 
 const SIGN_UP = gql`
   mutation signUp($username: String!, $email: String!, $password: String!) {
@@ -27,11 +22,11 @@ const validationSchema = validation.makeSchemaFor(
 
 const SignUpForm = () => (
   <Mutation mutation={SIGN_UP}>
-    {(createUser, { loading, error, data }) => (
+    {(signUp, { loading, error, data }) => (
       <Form
         validationSchema={validationSchema}
-        initialValues={validationSchema.cast()}
-        onSubmit={handleMutationSubmit({ createUser })}
+        mutation={{ signUp }}
+        apolloError={error}
       >
         <Fields.Username />
         <Fields.Email />
