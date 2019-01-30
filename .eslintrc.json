@@ -22,7 +22,14 @@
     "plugin:jsx-a11y/recommended",
     "plugin:cypress/recommended"
   ],
-  "plugins": ["filenames", "xss", "jsdoc", "jsx-a11y", "prettier", "cypress"],
+  "plugins": [
+    "filenames",
+    "xss",
+    "jsdoc",
+    "jsx-a11y",
+    "prettier",
+    "cypress"
+  ],
   "rules": {
     "security/detect-object-injection": 0,
     "filenames/match-exported": 2,
@@ -30,13 +37,20 @@
     "xss/no-location-href-assign": 2,
     "prettier/prettier": 2,
     "filenames/match-regex": 0,
-    "unicorn/filename-case": 0
+    "unicorn/filename-case": 0,
+    "jsx-a11y/label-has-for": 0
   },
   "overrides": [
     {
       "files": ["*.config.js", "webpack.*.js", "cypress/**"],
       "rules": {
         "xss/no-mixed-html": 0
+      }
+    },
+    {
+      "files": ["**/__tests__/**"],
+      "rules": {
+        "jsx-a11y/label-has-associated-control": 0
       }
     }
   ]

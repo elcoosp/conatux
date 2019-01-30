@@ -6,6 +6,7 @@ export default {
     Profile: labelize('/me/profile', 'Profile')
   },
   Auth: {
-    SignUp: labelize('/auth/signup', 'Sign up')
+    SignUp: labelize('/auth/signup', 'Sign up'),
+    Login: labelize('/auth/login', 'Login')
   }
 }

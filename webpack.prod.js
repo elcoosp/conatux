@@ -5,7 +5,5 @@ const common = require('./webpack.common.js')
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'sourcemap',
-  plugins: [
-    new CleanWebpackPlugin(['dist'])
-  ]
+  plugins: [new CleanWebpackPlugin(['dist'])]
 })

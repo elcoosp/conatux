@@ -6,7 +6,8 @@ const appPath = (...pathToFile) =>
 
 const output = {
   path: path.resolve(__dirname, 'dist'),
-  filename: '[name]/bundle.js'
+  filename: '[name]/bundle.js',
+  publicPath: '/'
 }
 
 const rules = [
@@ -28,7 +29,8 @@ const rules = [
     loader: 'babel-loader',
     options: {
       rootMode: 'upward',
-      presets: ['@babel/react']
+      presets: ['@babel/react'],
+      plugins: []
     }
   }
 ]
@@ -41,7 +43,8 @@ const plugins = [
 const resolve = {
   alias: {
     '@:': appPath('src')
-  }
+  },
+  modules: ['node_modules']
 }
 module.exports = {
   entry: appPath('src', 'index.js'),

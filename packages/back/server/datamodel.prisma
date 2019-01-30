@@ -1,6 +1,11 @@
 type User {
   id: ID! @unique
-  name: String!
+  username: String!
   email: String! @unique
   password: String!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
 }

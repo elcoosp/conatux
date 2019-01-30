@@ -1,15 +1,18 @@
-
+const common = {
+  presets: ['@babel/preset-react'],
+  plugins: []
+}
 const test = {
   presets: [
     [
       '@babel/preset-env',
       {
-        'targets': 'last 2 Chrome versions'
+        targets: 'last 2 Chrome versions'
       }
     ],
-    '@babel/preset-react'
-
-  ]
+    ...common.presets
+  ],
+  plugins: ['react-hot-loader/babel', ...common.plugins]
 }
 
 const production = {
@@ -17,25 +20,19 @@ const production = {
     [
       '@babel/preset-env',
       {
-        'shippedProposals': true,
-        'targets': {
-          'browsers': [
-            '>0.25%',
-            'not ie 11',
-            'not op_mini all'
-          ]
+        shippedProposals: true,
+        targets: {
+          browsers: ['>0.25%', 'not ie 11', 'not op_mini all']
         }
       }
     ],
-    '@babel/preset-react'
-
+    ...common.presets
   ],
-  'ignore': [
-    '**/__tests__'
-  ]
+  ignore: ['**/__tests__'],
+  plugins: [...common.plugins]
 }
 
-module.exports = (api) => {
+module.exports = api => {
   api.cache(true)
   return { env: { test, production } }
 }

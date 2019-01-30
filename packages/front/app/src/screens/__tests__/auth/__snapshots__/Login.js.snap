@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> should match snapshot 1`] = `
+<Redirect
+  push={false}
+  to={
+    Object {
+      "pathname": "/me/profile",
+    }
+  }
+/>
+`;
+
+exports[`<Login /> should match snapshot 2`] = `
+<Screen
+  title="Login"
+>
+  <LoginForm />
+</Screen>
+`;

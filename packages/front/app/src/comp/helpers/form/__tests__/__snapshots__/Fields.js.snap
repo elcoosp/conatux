@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Fields.Email /> should match snapshot 1`] = `
+<LabelledField
+  label="Email"
+  name="email"
+  type="email"
+/>
+`;
+
+exports[`<Fields.Password /> should match snapshot 1`] = `
+<LabelledField
+  label="Password"
+  name="password"
+  type="password"
+/>
+`;
+
+exports[`<Fields.PasswordConfirmation /> should match snapshot 1`] = `
+<LabelledField
+  label="Password confirmation"
+  name="passwordConfirmation"
+  type="password"
+/>
+`;
+
+exports[`<Fields.Username /> should match snapshot 1`] = `
+<LabelledField
+  label="Username"
+  name="username"
+  type="text"
+/>
+`;
