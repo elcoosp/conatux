@@ -1,6 +1,6 @@
 import { STORAGE } from '@:/constants'
 import client from '@:/client'
-import cache, { persistor } from '@:/client/cache'
+
 const clearApolloCache = () =>
   localStorage.removeItem(STORAGE.KEYS.APOLLO_CACHE)
 const getStoredToken = () => localStorage.getItem(STORAGE.KEYS.TOKEN)
