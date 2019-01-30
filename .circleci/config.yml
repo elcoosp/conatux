@@ -53,6 +53,9 @@ jobs:
       ## variable by default and apply
       ## this to the run.
       - run:
+          name: Clean docker
+          command: docker-compose down -v
+      - run:
           name: Run Cypress tests
           command: npm run test:e2e:run
 
