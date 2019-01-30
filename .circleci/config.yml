@@ -5,7 +5,7 @@ jobs:
   test-e2e:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:10
+      - image: cypress/browsers:chrome67
     steps:
       - checkout
 
@@ -15,15 +15,15 @@ jobs:
             - dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - dependencies-
-      - run:
-          name: Install chrome
-          command: |
-            apt-get update
-            apt-get install -y lsb-release libappindicator3-1 fonts-liberation xdg-utils
-            curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            dpkg -i google-chrome.deb
-            sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
-            rm google-chrome.deb
+      # - run:
+      #     name: Install chrome
+      #     command: |
+      #       apt-get update
+      #       apt-get install -y lsb-release libappindicator3-1 fonts-liberation xdg-utils
+      #       curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      #       dpkg -i google-chrome.deb
+      #       sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
+      #       rm google-chrome.deb
       # Install NPM dependencies quickly using "npm ci"
       # https://on.cypress.io/continuous-integration
       # https://docs.npmjs.com/cli/ci
@@ -52,9 +52,6 @@ jobs:
       ## CYPRESS_RECORD_KEY environment
       ## variable by default and apply
       ## this to the run.
-      - run:
-          name: Clean docker
-          command: docker-compose down -v
       - run:
           name: Run Cypress tests
           command: npm run test:e2e:run
