@@ -78,7 +78,7 @@
     "test:bundlesize": "bundlesize",
     "test:cov": "jest --coverage",
     "test:e2e:open": "cypress open",
-    "test:e2e:run": "DEBUG=cypress:* cypress run --browser chrome",
+    "test:e2e:run": "DEBUG=cypress:* cypress run --browser=chrome",
     "test:watch": "jest --watchAll",
     "build:wp": "webpack --config ./webpack.prod.js",
     "start:front": "webpack-dev-server --config ./webpack.dev.js --hot",
