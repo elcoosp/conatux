@@ -10,6 +10,4 @@ export const persistor = new CachePersistor({
   storage: window.localStorage
 })
 
-persistor.restore()
-
 export default cache

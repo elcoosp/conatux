@@ -4,6 +4,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 import client from '@:/client'
 import App from './App'
+import { persistor } from '@:/client/cache'
+
+persistor.restore()
 
 const Root = () => (
   <ApolloProvider client={client}>
