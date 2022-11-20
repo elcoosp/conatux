@@ -12,7 +12,7 @@
     "start:db": "docker-compose up -d"
   },
   "devDependencies": {
-    "nodemon": "1.18.8"
+    "nodemon": "2.0.17"
   },
   "dependencies": {
     "apollo-errors": "^1.9.0",
