@@ -40,7 +40,7 @@
     "file-loader": "2.0.0",
     "html-webpack-plugin": "3.2.0",
     "jest": "24.0.0-alpha.8",
-    "jest-cli": "23.6.0",
+    "jest-cli": "24.3.0",
     "jest-environment-enzyme": "7.0.1",
     "jest-enzyme": "7.0.1",
     "jest-fetch-mock": "2.1.0",
