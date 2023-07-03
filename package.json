@@ -49,7 +49,7 @@
     "prettier": "1.15.3",
     "prop-types": "15.6.2",
     "react-fake-props": "0.3.1",
-    "react-hot-loader": "4.6.0",
+    "react-hot-loader": "4.13.1",
     "react-router-enzyme-context": "1.2.0",
     "regenerator-runtime": "0.13.1",
     "style-loader": "0.23.1",
