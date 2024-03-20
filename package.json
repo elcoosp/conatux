@@ -2,10 +2,10 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "@babel/cli": "7.2.0",
-    "@babel/core": "7.2.0",
-    "@babel/preset-env": "7.2.0",
-    "@babel/preset-react": "7.0.0",
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.3",
+    "@babel/preset-env": "7.24.3",
+    "@babel/preset-react": "7.24.1",
     "@cypress/webpack-preprocessor": "4.0.3",
     "airbnb-prop-types": "2.11.0",
     "babel-core": "7.0.0-bridge.0",
@@ -86,7 +86,7 @@
     "start": "npm run start:back & npm run start:front"
   },
   "dependencies": {
-    "@babel/polyfill": "7.0.0",
+    "@babel/polyfill": "7.12.1",
     "react": "16.6.3",
     "react-dom": "16.6.3"
   }
